@@ -16,7 +16,7 @@ export default class RandomChar extends Component {
     componentDidMount() {
         console.log('mount');
         this.updateChar();
-        this.timerID = setInterval(this.updateChar, 1500);
+        this.timerID = setInterval(this.updateChar, 5000);
     }
     componentWillUnmount() {
         console.log('unmounting');
