@@ -22,7 +22,7 @@ export default class ItemDetails extends Component {
 
     state = {
         item: null,
-        content: null
+        selectName: ""
     }
 
     componentDidMount() {
@@ -35,7 +35,6 @@ export default class ItemDetails extends Component {
         }
     }
 
-
     updateItem() {
         const {itemId} = this.props;
         if (!itemId) {return};
@@ -43,12 +42,21 @@ export default class ItemDetails extends Component {
         const itemPromise = () => {
             const {itemId, content} = this.props;
             if (content === 'char') {
-                return this.gotService.getCharater(itemId);
+                this.setState({
+                    selectName: "Character"
+                });
+                return this.gotService.getCharater(itemId)
              }
              if (content === 'house') {
+                this.setState({
+                    selectName: "House"
+                });
                 return this.gotService.getHouse(itemId)
              }
              if (content === 'book') {
+                this.setState({
+                    selectName: "Book"
+                });
                 return this.gotService.getBook(itemId)
              }
         }
@@ -64,11 +72,12 @@ export default class ItemDetails extends Component {
 
     render() {
 
-        if (!this.state.item) {
-            return <span className='select-error'>Please Select a Itemacter</span>
+        const {item, selectName} = this.state;
+
+        if (!item) {
+            return <span className='select-error'>Please Select a {selectName}</span>
         }
 
-        const {item} = this.state;
         const {name} = item;
 
         return (

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import ItemList from '../../itemList';
-import ItemDetails from '../../itemDetails';
-import ErrorMessage from '../../errorMessage/errorMessage';
-import GotService from '../../../services/gotService';
-import RowBlock from '../../rowBlock/rowBlock';
-import { Field } from '../../itemDetails/itemDetails';
+import ItemList from '../itemList';
+import ItemDetails from '../itemDetails';
+import ErrorMessage from '../errorMessage/errorMessage';
+import GotService from '../../services/gotService';
+import RowBlock from '../rowBlock/rowBlock';
+import { Field } from '../itemDetails/itemDetails';
 
 export default class HousesPage extends Component {
 
